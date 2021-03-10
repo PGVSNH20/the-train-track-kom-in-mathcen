@@ -12,10 +12,10 @@ namespace TrainEngine
         private List<TimeTable> Timetables;
 
 
-        public TrainPlaner(Train train, Station name)
+        public TrainPlaner(Train train, Station station1)
         {
             _train.Name = train.ToString();
-            _station.Name = name.ToString();
+            _station.Name = station1.ToString();
 
             Timetables = new List<TimeTable>();
 

@@ -16,7 +16,8 @@ namespace TrainConsole
                     .HeadTowards(station2)
                     .StartTrainAt("10:23")
                     .StopTrainAt("14:53", station2)
-                .GeneratePlan();
+                    .GeneratePlan();
+            
 
 
             //Console.WriteLine("Train track!");
