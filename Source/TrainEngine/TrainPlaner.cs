@@ -4,40 +4,52 @@ using System.Text;
 
 namespace TrainEngine
 {
-    class TrainPlaner : ITrainPlaner
+    public class TrainPlaner : ITrainPlaner
     {
 
         private Station _station;
         private Train _train;
+        private List<TimeTable> Timetables;
 
 
-        public TrainPlaner(Train train, Station startStation)
+        public TrainPlaner(Train train, Station name)
         {
             _train.Name = train.ToString();
-            _station.StartStation = startStation.ToString();
-            
+            _station.Name = name.ToString();
+
+            Timetables = new List<TimeTable>();
 
         }
 
 
       
-        public ITrainPlaner HeadTowards(string HeadTowards)
+        public ITrainPlaner HeadTowards(Station station2)
         {
-            throw new NotImplementedException();
+            Timetables.Add(new TimeTable() { EndStation = station2.ToString() });
+            return this;
+            //   throw new NotImplementedException();
         }
 
-        public ITrainPlaner StartTrainAt(string StartTrainAt)
+        public ITrainPlaner StartTrainAt(string startTrainAt)
         {
-            throw new NotImplementedException();
+            Timetables.Add(new TimeTable() { DepartureTime = startTrainAt });
+            return this;
+            //throw new NotImplementedException();
         }
 
-        public ITrainPlaner StopTrainAt(string StopTrainAt)
+        public ITrainPlaner StopTrainAt(string stopTrainAt, Station station2)
         {
-            throw new NotImplementedException();
+            Timetables.Add(new TimeTable() { ArrivalTime = stopTrainAt, EndStation = station2.ToString() });
+            return this;
+            //throw new NotImplementedException();
         }
 
         public ITravelPlan GeneratePlan()
         {
+            foreach(var travelplan in Timetables)
+            {
+                Console.WriteLine($"{travelplan.EndStation} {travelplan.DepartureTime} {travelplan.ArrivalTime} {travelplan.EndStation}");
+            }
             throw new NotImplementedException();
         }
     }

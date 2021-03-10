@@ -7,12 +7,12 @@ namespace TrainEngine
     public class Station
     {
         public int Id { get; set; }
-        public string StartStation { get; set; }
-        public string EndStation { get; set; }
+        public string Name { get; set; }
+        public bool EndStation { get; set; }
 
         public Station(string stationName)
         {
-            StartStation = stationName;
+            Name = stationName;
         }
 
     }
