@@ -8,8 +8,8 @@ namespace TrainEngine
     {
         public string TrainId { get; set; }
         public string StationID { get; set; }
-        public DateTime DepartureTime { get; set; }
-        public DateTime ArrivalTime { get; set; }
+        public string DepartureTime { get; set; }
+        public string ArrivalTime { get; set; }
 
     }
 }
