@@ -6,25 +6,37 @@ namespace TrainEngine
 {
     class TrainPlaner : ITrainPlan
     {
-      
+        public List<TimeTable> timeTables { get; set; }
+
+        public TrainPlaner()
+        {
+            timeTables = new List<TimeTable>();
+        }
+
         public ITrainPlan HeadTowards(string HeadTowards)
         {
-            throw new NotImplementedException();
+            timeTables.Add(new TimeTable() { StationID = HeadTowards });
+            return this;
         }
 
         public ITrainPlan StartTrainAt(string StartTrainAt)
         {
-            throw new NotImplementedException();
+            timeTables.Add(new TimeTable() { DepartureTime = StartTrainAt });
+            return this;
         }
 
         public ITrainPlan StopTrainAt(string StopTrainAt)
         {
-            throw new NotImplementedException();
+            timeTables.Add(new TimeTable() { StationID = StopTrainAt });
+            return this;
         }
 
         public ITrainPlan GeneratePlan()
         {
-            throw new NotImplementedException();
+          
+            return this;
         }
+        
+
     }
 }
