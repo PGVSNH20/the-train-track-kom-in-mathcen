@@ -6,9 +6,9 @@ namespace TrainEngine
 {
     public interface ITravelPlan
     {
-        List<TimeTable> Timetables { get; }
+        List<TimeTable> Timetables { get; set; }
 
-        object Train { get; }
+        //object Train { get; }
 
         void Save(string path);
         void Load(string path);

@@ -11,7 +11,7 @@ namespace TrainEngine
         public string DepartureTime { get; set; }
         public string ArrivalTime { get; set; }
         public string StartStation { get; set; }
-        public string EndStation { get; set; }
+        public Station EndStation { get; set; }
 
     }
 }

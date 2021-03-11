@@ -14,44 +14,45 @@ namespace TrainEngine
 
         public TrainPlaner(Train train, Station station1)
         {
-            _train.Name = train.ToString();
-            _station.Name = station1.ToString();
+            _train = train;
+            _station = station1;
 
             Timetables = new List<TimeTable>();
 
         }
 
+        
 
-      
         public ITrainPlaner HeadTowards(Station station2)
         {
-            Timetables.Add(new TimeTable() { EndStation = station2.ToString() });
+            Timetables.Add(new TimeTable() { EndStation = station2});
             return this;
-            //   throw new NotImplementedException();
+
         }
 
         public ITrainPlaner StartTrainAt(string startTrainAt)
         {
             Timetables.Add(new TimeTable() { DepartureTime = startTrainAt });
             return this;
-            //throw new NotImplementedException();
+
         }
 
         public ITrainPlaner StopTrainAt(string stopTrainAt, Station station2)
         {
-            Timetables.Add(new TimeTable() { ArrivalTime = stopTrainAt, EndStation = station2.ToString() });
+            Timetables.Add(new TimeTable() { ArrivalTime = stopTrainAt, EndStation = station2});
             return this;
-            //throw new NotImplementedException();
+
+
         }
+
 
         public ITravelPlan GeneratePlan()
         {
-            foreach(var travelplan in Timetables)
-            {
-                Console.WriteLine($"{travelplan.EndStation} {travelplan.DepartureTime} {travelplan.ArrivalTime} {travelplan.EndStation}");
-            }
-            throw new NotImplementedException();
+
+            return new TravelPlan() { Timetables = Timetables };
+
         }
+
     }
 
     /*
@@ -66,3 +67,5 @@ namespace TrainEngine
         .GeneratePlan();
     */
 }
+    
+

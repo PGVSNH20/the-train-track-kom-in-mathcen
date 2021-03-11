@@ -12,7 +12,7 @@ namespace TrainEngine
 
         public Station(string stationName)
         {
-            Name = stationName;
+           // Name = stationName;
         }
 
     }
