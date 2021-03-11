@@ -5,7 +5,7 @@ using System.Text;
 namespace TrainEngine.ORM
 {
     class StationOrm
-    {
+    {/*
         static void Main()
         {
             // The files used in this example are created in the topic
@@ -35,6 +35,6 @@ namespace TrainEngine.ORM
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
-        }
-    }
+        }*/
+    } 
 }

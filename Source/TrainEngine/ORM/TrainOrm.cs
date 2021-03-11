@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace TrainEngine.ORM
-{
-    class TrainOrm
+{ public class TrainOrm
     {
+
     }
 }
+
+
+

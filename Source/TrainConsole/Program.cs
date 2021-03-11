@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using TrainEngine;
 
 namespace TrainConsole
@@ -19,7 +22,18 @@ namespace TrainConsole
                     .GeneratePlan();
             Console.WriteLine(travelPlan.Timetables);
 
+            string filepath = @"C:\Users\drunn\Documents\GitHub\the-train-track-kom-in-mathcen\Data\train.txt";
+            List<string> lines = File.ReadAllLines(filepath).ToList();
 
+            foreach (string line in lines)
+            {
+                Console.WriteLine(line);
+            }
+             
+
+            // iterate through each element within the array and
+            // print it out
+            //
             
 
 
