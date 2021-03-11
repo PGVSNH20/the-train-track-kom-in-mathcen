@@ -6,7 +6,11 @@ namespace TrainEngine
 {
     class TravelPlan : ITravelPlan
     {
-       
+
+        // Skapa klass traintrackORM - Ska returnera en traintrack
+        // Skapa Traintrack datamodell
+        // 
+
 
         public List<TimeTable> Timetables { get; set; } 
 

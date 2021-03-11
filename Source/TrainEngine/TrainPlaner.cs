@@ -12,6 +12,8 @@ namespace TrainEngine
         private List<TimeTable> Timetables;
 
 
+
+
         public TrainPlaner(Train train, Station station1)
         {
             _train = train;
