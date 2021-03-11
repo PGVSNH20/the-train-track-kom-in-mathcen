@@ -1,17 +1,21 @@
 ﻿using System;
 using System.IO;
 using TrainEngine;
+using TrainEngine.ORM;
+using System.Linq;
 
-namespace TrainConsole
+namespace TrainConsole 
 {
-    class Program
+    class Program 
     {
         static void Main(string[] args)
         {
+            var orm = new TrainOrm();
+            var trains = orm.Load();
 
-            Train train1 = new Train("Name of train");
-            Station station1 = new Station("Gothenburg");
-            Station station2 = new Station("Stockholm");
+            Train train1 = trains.FirstOrDefault(x => x.Id == 2);
+            Station station1 = new("Gothenburg");
+            Station station2 = new("Stockholm");
 
             ITravelPlan travelPlan = new TrainPlaner(train1, station1)
                     .HeadTowards(station2)
@@ -20,8 +24,12 @@ namespace TrainConsole
                     .GeneratePlan();
             Console.WriteLine(travelPlan.Timetables);
 
-
             
+         
+            
+            
+
+
 
 
 

@@ -16,7 +16,7 @@ namespace TrainEngine.ORM
 
                 String line;
 
-                StreamReader sr = new StreamReader(@"C:\\Users\mattias.lidbom\source\repos\the-train-track-kom-in-mathcen\Data\traintack1.txt");
+            StreamReader sr = new StreamReader("./Data/traintrack1.txt");
 
                 line = sr.ReadLine();
 
