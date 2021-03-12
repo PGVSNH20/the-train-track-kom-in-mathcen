@@ -6,8 +6,8 @@ namespace TrainEngine
 {
     public class TimeTable
     {
-        public string TrainId { get; set; }
-        public string StationID { get; set; }
+        public int TrainId { get; set; }
+        public int StationID { get; set; }
         public string DepartureTime { get; set; }
         public string ArrivalTime { get; set; }
         public string StartStation { get; set; }

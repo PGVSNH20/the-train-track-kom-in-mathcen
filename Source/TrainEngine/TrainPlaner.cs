@@ -14,9 +14,9 @@ namespace TrainEngine
 
 
 
-        public TrainPlaner(Train train, Station station1)
+        public TrainPlaner(Train train1, Station station1)
         {
-            _train = train;
+            _train = train1;
             _station = station1;
 
             Timetables = new List<TimeTable>();
@@ -50,9 +50,10 @@ namespace TrainEngine
 
         public ITravelPlan GeneratePlan()
         {
-
+            
             return new TravelPlan() { Timetables = Timetables };
 
+            
         }
 
     }
