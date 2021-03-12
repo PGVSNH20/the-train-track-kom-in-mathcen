@@ -6,7 +6,7 @@ using TrainEngine.Datamodel;
 
 namespace TrainEngine.ORM
 {
-    class TrainTrackOrm
+    public class TrainTrackOrm
     {
 
 
@@ -14,48 +14,37 @@ namespace TrainEngine.ORM
         {
             var trainTrack = new TrainTrack();
 
-                String line;
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\mattias.lidbom\source\repos\the-train-track-kom-in-mathcen\Data\traintrack1.txt");
 
-                StreamReader sr = new StreamReader(@"C:\\Users\mattias.lidbom\source\repos\the-train-track-kom-in-mathcen\Data\traintack1.txt");
+            // Display the file contents by using a foreach loop.
+            System.Console.WriteLine("Contents of WriteLines2.txt = ");
+            foreach (var teckenInLine in lines)
+            {
+                
+                
 
-                line = sr.ReadLine();
-
-                while (line != null)
+                if (teckenInLine.Contains("-")) 
                 {
-
-                    Console.WriteLine(line);
-
-                    line = sr.ReadLine();
-
-
-                    foreach (var lines in line)
-                    {
-                        if (lines == '-')
-                        {
-                        trainTrack.TrackElements.Add(new Rail());
-                        }
-
-
-
-                    }
-                    
-
-
-                {
-                    
-
-
+                    trainTrack.TrackElements.Add(new Rail());
                 }
 
-                    
+                
 
-                }
+                
 
-                sr.Close();
-                Console.ReadLine();
+                //if (teckenInLine.Contains("3")) 
+                //{
+                //    trainTrack.TrackElements.Add(new Station());
+                //}
 
+                
+                // Use a tab to indent each line of the file.
+               // Console.WriteLine("\t" + line);
+            }
 
-            return trainTrack;
+     
+
+                return trainTrack;
             
         }
 
