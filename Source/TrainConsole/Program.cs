@@ -16,13 +16,13 @@ namespace TrainConsole
             var trainOrm = new TrainOrm();
             var trains = trainOrm.Load();
             
-            Train train1 = trains.FirstOrDefault(t => t.Id == 2);
+            Train train1 = trains.FirstOrDefault(t => t.Id == 3);
             Station station1 = stations.FirstOrDefault(s => s.Id == 0);
             Station station2 = stations.FirstOrDefault(s => s.Id == 2);
             
             Console.WriteLine($"Detta ar din reseplan:");
            
-            ITravelPlan travelPlan1 = new TrainPlaner(train1, station1)
+            var travelPlan1 = new TrainPlaner(train1, station1)
                     .HeadTowards(station2)
                     .StartTrainAt("10:23")
                     .StopTrainAt("14:53", station2)
