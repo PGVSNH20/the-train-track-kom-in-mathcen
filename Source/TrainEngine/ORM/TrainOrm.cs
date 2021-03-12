@@ -5,7 +5,8 @@ using System.Linq;
 
 
 namespace TrainEngine.ORM
-{ public class TrainOrm
+{ 
+    public class TrainOrm
     {
         public List<Train> Load()
         {
@@ -35,7 +36,7 @@ namespace TrainEngine.ORM
             {
                 Console.WriteLine($"{ train.Id} { train.Name} { train.MaxSpeed} { train.Operated}");
             }
-            Console.ReadLine();
+            
             return trains;
         }
 

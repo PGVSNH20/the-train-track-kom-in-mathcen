@@ -9,11 +9,11 @@ namespace TrainEngine
         public int Id { get; set; }
         public string Name { get; set; }
         public bool EndStation { get; set; }
-
+        /*
         public Station(string stationName)
         {
            // Name = stationName;
-        }
+        } */
 
     }
 }
