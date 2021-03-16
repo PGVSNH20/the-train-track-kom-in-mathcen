@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using TrainEngine.Datamodel;
 
 namespace TrainEngine.ORM
 {
-    class TrainTrackOrm
+    public class TrainTrackOrm
     {
 
 
@@ -14,54 +16,65 @@ namespace TrainEngine.ORM
         {
             var trainTrack = new TrainTrack();
 
-                String line;
 
-            StreamReader sr = new StreamReader("./Data/traintrack1.txt");
+            string filePath = @"C:\Users\mattias.lidbom\source\repos\the-train-track-kom-in-mathcen\Data\traintrack1.txt";
 
-                line = sr.ReadLine();
+            string lines = File.ReadAllText(filePath);
 
-                while (line != null)
+            var station = new StationOrm();
+            var stations = station.Load();
+
+            foreach (char element in lines){
+
+                if(element == '-')
                 {
-
-                    Console.WriteLine(line);
-
-                    line = sr.ReadLine();
-
-
-                    foreach (var lines in line)
-                    {
-                        if (lines == '-')
-                        {
-                        trainTrack.TrackElements.Add(new Rail());
-                        }
-
-
-
-                    }
-                    
-
-
-                {
-                    
-
-
+                    trainTrack.TrackElements.Add(new Rail());
                 }
 
-                    
-
+                if(element == '1')
+                {
+                    var startStation = stations.FirstOrDefault(s => s.Id == 1);
+                    trainTrack.TrackElements.Add(startStation);
                 }
 
-                sr.Close();
-                Console.ReadLine();
+                if(element == '2')
+                {
+                    var middleStation = stations.FirstOrDefault(s => s.Id == 2);
+                    trainTrack.TrackElements.Add(middleStation);
+                }
+
+                if (element == '3')
+                {
+                    var endStation = stations.FirstOrDefault(s => s.Id == 3);
+                    trainTrack.TrackElements.Add(endStation);
+                }
+
+                if(element == '=')
+                {
+                    trainTrack.TrackElements.Add(new Railwaycross());
+                }
+
+            }
 
 
+
+           
             return trainTrack;
-            
+
         }
+
+
+        }
+
+     
+
+                
+            
+        
 
 
         
 
 
-    }
+    
 }

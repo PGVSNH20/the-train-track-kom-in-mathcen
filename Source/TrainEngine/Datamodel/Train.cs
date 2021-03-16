@@ -12,10 +12,6 @@ namespace TrainEngine
         public bool Operated { get; set; }
 
 
-       /* public Train(string name)
-        {
-            Name = name;
-        } */
-
+      
     }
 }

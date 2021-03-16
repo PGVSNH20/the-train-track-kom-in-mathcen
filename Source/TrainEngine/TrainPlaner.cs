@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TrainEngine.Datamodel;
 
 namespace TrainEngine
 {
@@ -14,16 +15,21 @@ namespace TrainEngine
 
 
 
-        public TrainPlaner(Train train1, Station station1)
+
+        public TrainPlaner(Train train1)
         {
             _train = train1;
-            _station = station1;
+            //_station = station1;
 
             Timetables = new List<TimeTable>();
 
         }
 
-        
+        public ITrainPlaner LoadTrainTrack(string path)
+        {
+            throw new NotImplementedException();
+        }
+
 
         public ITrainPlaner HeadTowards(Station station2)
         {
@@ -56,6 +62,7 @@ namespace TrainEngine
             
         }
 
+        
     }
 
     /*
