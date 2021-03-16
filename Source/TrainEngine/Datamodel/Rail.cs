@@ -6,5 +6,6 @@ namespace TrainEngine.Datamodel
 {
     public class Rail : TrackElement
     {
+
     }
 }
