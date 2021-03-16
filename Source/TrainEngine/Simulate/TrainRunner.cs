@@ -13,24 +13,27 @@ namespace TrainEngine.Simulate
 
         private Train trainToSimulate;
         private TrainTrack _track;
+
+       
+
         private Thread simulatorThread;
 
 
         public TrainRunner(Train train, TrainTrack track)
         {
-            
+
 
             this.trainToSimulate = train;
             this._track = track;
             //simulatorIsRunning = false;
-
+            
         }
 
 
         public void Start(Station startStation, Station endStation)
         {
             //Skapar ny tråd
-            
+
             Console.WriteLine($"Tåg: {trainToSimulate.Name}\nTågets startstation: {startStation.Name} \nTågets slutstation: {endStation.Name}");
             simulatorThread = new Thread(() => Simulate());
             simulatorThread.Start();
@@ -47,19 +50,29 @@ namespace TrainEngine.Simulate
         public static void Simulate()
         {
             int distance = 0;
-
+            
             var trackOrm = new TrainTrackOrm();
             var track = trackOrm.Load();
+            //var test = _track.TrackElements;
 
 
 
 
-            
 
 
-            foreach (var element in track.TrackElements)
+            foreach (var element in track.TrackElements )
             {
 
+                if(element is Rail)
+                {
+                    Console.WriteLine("En räls");
+                }
+
+                if(element is Station)
+                {
+                    var station = (Station)element;
+                    Console.WriteLine(station.Name);
+                }
 
                 Console.WriteLine(element);
 
@@ -76,17 +89,17 @@ namespace TrainEngine.Simulate
                 }
                     
 
-                   // if (track.TrackElements.Any(s => s.GetType() == ));
+                    if (track.TrackElements.Any(s => s.GetType() == ));
 
 
                 */
             }
 
-        } 
+        }
         /*
 private static void Simulate(){
             while(simulatorIsRunning){
-                
+
                 int distanceDrived = tts.Speed * FakeClock.MinutesWhichHaveTicked;
                 Console.WriteLine($"So far have {tts.Name} gone {distanceDrived} in {FakeClock.MinutesWhichHaveTicked} min");
                 if(distanceDrived >= distanceToDrive){
@@ -96,4 +109,5 @@ private static void Simulate(){
                 Thread.Sleep(200);
        */
     }
+    
 }

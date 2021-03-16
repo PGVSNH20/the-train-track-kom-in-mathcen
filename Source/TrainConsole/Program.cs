@@ -28,7 +28,8 @@ namespace TrainConsole
             
             
             //Extract 
-        
+            
+            
 
             ITrainRunner runner = new TrainRunner(trains[0], track);
             runner.Start((Station)track.TrackElements[0], (Station)track.TrackElements[8]);
