@@ -17,7 +17,7 @@ namespace TrainEngine.ORM
             var trainTrack = new TrainTrack();
 
 
-            string filePath = @"C:\Users\mattias.lidbom\source\repos\the-train-track-kom-in-mathcen\Data\traintrack1.txt";
+            string filePath = @".\Data\traintrack1.txt";
 
             string lines = File.ReadAllText(filePath);
 

@@ -26,7 +26,7 @@ namespace TrainConsole
             Console.WriteLine($"Detta ar din reseplan:");
 
             ITravelPlan travelPlan1 = new TrainPlaner(train1)
-                    .LoadTrainTrack()
+                   // .LoadTrainTrack()
                     //.HeadTowards(station2)
                     .StartTrainAt("10:23")
                     //.StopTrainAt("14:53", station2)
