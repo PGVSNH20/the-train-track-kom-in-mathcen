@@ -27,6 +27,7 @@ namespace TrainConsole
                     .StartTrainAt("10:23")
                     .StopTrainAt("14:53", station2)
                     .GeneratePlan();
+            Console.WriteLine($"{travelPlan1.Timetables}");
             
             //Console.WriteLine($"Detta ar din reseplan:");
 
