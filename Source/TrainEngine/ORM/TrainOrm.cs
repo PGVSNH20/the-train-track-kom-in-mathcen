@@ -35,7 +35,7 @@ namespace TrainEngine.ORM
 
             foreach (var train in trains )
             {
-                Console.WriteLine($"{ train.Id} { train.Name} { train.MaxSpeed} { train.Operated}");
+                //Console.WriteLine($"{ train.Id} { train.Name} { train.MaxSpeed} { train.Operated}");
             }
             
             return trains;

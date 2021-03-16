@@ -32,7 +32,7 @@ namespace TrainEngine.ORM
 
             foreach (var station in stations)
             {
-                Console.WriteLine($"{ station.Id} { station.Name} { station.EndStation} ");
+               // Console.WriteLine($"{ station.Id} { station.Name} { station.EndStation} ");
             }
             
 

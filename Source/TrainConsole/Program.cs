@@ -6,6 +6,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TrainEngine.Datamodel;
+using TrainEngine.Simulate;
 
 namespace TrainConsole 
 {
@@ -13,29 +14,47 @@ namespace TrainConsole
     {
         static void Main(string[] args)
         {
+
             //var stationOrm = new StationOrm();
             //var stations = stationOrm.Load();
 
             var trainOrm = new TrainOrm();
             var trains = trainOrm.Load();
 
-            Train train1 = trains.FirstOrDefault(t => t.Id == 2);
-            //Station station1 = stations.FirstOrDefault(s => s.Id == 0);
-            //Station station2 = stations.FirstOrDefault(s => s.Id == 2);
+            var trackOrm = new TrainTrackOrm();
+            var track = trackOrm.Load();
 
-            Console.WriteLine($"Detta ar din reseplan:");
+            var trainTrack = new TrainTrack();
+            
+            
+            //Extract 
+        
 
-            ITravelPlan travelPlan1 = new TrainPlaner(train1)
-                    .LoadTrainTrack()
-                    //.HeadTowards(station2)
-                    .StartTrainAt("10:23")
-                    //.StopTrainAt("14:53", station2)
-                    .GeneratePlan();
+            ITrainRunner runner = new TrainRunner(trains[0], track);
+            runner.Start((Station)track.TrackElements[0], (Station)track.TrackElements[8]);
+            //runner.Start()
 
 
-            var train = new TrainTrackOrm();
 
-            var track = train.Load();
+           
+
+            //Train train1 = trains.FirstOrDefault(t => t.Id == 2);
+            ////Station station1 = stations.FirstOrDefault(s => s.Id == 0);
+            ////Station station2 = stations.FirstOrDefault(s => s.Id == 2);
+
+            //Console.WriteLine($"Detta ar din reseplan:");
+
+            //ITravelPlan travelPlan1 = new TrainPlaner(train1)
+            //        //.LoadTrainTrack()
+            //        //.HeadTowards(station2)
+            //        .StartTrainAt("10:23")
+            //        //.StopTrainAt("14:53", station2)
+            //        .GeneratePlan();
+
+
+            //var train = new TrainTrackOrm();
+
+            //var track = train.Load();
 
 
     
