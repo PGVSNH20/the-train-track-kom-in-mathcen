@@ -7,14 +7,19 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TrainEngine.Datamodel;
 using TrainEngine.Simulate;
+using System.Threading;
 
 namespace TrainConsole 
 {
-    class Program 
+    public class Program
     {
+
+        
+
         static void Main(string[] args)
         {
-
+            
+            
             //var stationOrm = new StationOrm();
             //var stations = stationOrm.Load();
 
@@ -33,8 +38,15 @@ namespace TrainConsole
 
             ITrainRunner runner = new TrainRunner(trains[0], track);
             runner.Start((Station)track.TrackElements[0], (Station)track.TrackElements[27]);
-            //runner.Start()
-
+            Thread.Sleep(15000);
+            //Console.WriteLine("Times up");
+            runner.Stop();
+            /*ITrainRunner runner2 = new TrainRunner(trains[0], track);
+            runner.Start((Station)track.TrackElements[27], (Station)track.TrackElements[0]);
+            Thread.Sleep(3000);
+            Console.WriteLine("Times up");
+            runner.Stop(); */
+           
 
 
            

@@ -13,8 +13,10 @@ namespace TrainEngine.Simulate
 
         private Train trainToSimulate;
         private TrainTrack _track;
+        private static bool simulatorIsRunning;
+        
 
-       
+
 
         private Thread simulatorThread;
 
@@ -22,20 +24,19 @@ namespace TrainEngine.Simulate
         public TrainRunner(Train train, TrainTrack track)
         {
 
-
+           
             this.trainToSimulate = train;
             this._track = track;
-            //simulatorIsRunning = false;
+            simulatorIsRunning = false;
             
         }
 
 
         public void Start(Station startStation, Station endStation)
         {
-            //Skapar ny tråd
-
+            simulatorIsRunning = true;
             Console.WriteLine($"Tåg: {trainToSimulate.Name}\nTågets startstation: {startStation.Name} \nTågets slutstation: {endStation.Name}");
-            simulatorThread = new Thread(() => Simulate());
+            simulatorThread = new Thread(() => Simulate(startStation, endStation));
             simulatorThread.Start();
 
 
@@ -43,89 +44,93 @@ namespace TrainEngine.Simulate
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Stoppar tåg {trainToSimulate.Name}");
+            //Thread.Sleep(5000);
+            simulatorIsRunning = false;
         }
 
 
-        public static void Simulate()
+        public static void Simulate(Station startstation, Station slutStation)
         {
-            int distance = 0;
             
+
             var trackOrm = new TrainTrackOrm();
             var track = trackOrm.Load();
-            //var test = _track.TrackElements;
+            
+            int count = 1;
 
-            //Console.WriteLine();
-
-
-
-
-            foreach (var element in track.TrackElements )
+            while (simulatorIsRunning)
             {
-                
-                if (element is Rail)
+                foreach (var element in track.TrackElements)
                 {
-                    Console.WriteLine("Tuff tuff...");
-                    
-                }
 
-                if(element is Railwaycross)
-                {
-                    Console.WriteLine("Tut tuuuuut, watch out for the railroad crossing ");
-                }
+                    var countRails = track.TrackElements.Where(x => x.GetType() == typeof(Rail)).Count();
 
-                if(element is Station)
-                {
-                    var station = (Station)element;
-                    if( station.EndStation == true)
+                    if (element is Station)
                     {
-                        Console.WriteLine($"Du är nu på {station.Name} som är en slutstation");
+                        var station = (Station)element;
+                        
+                        if (station.Id == startstation.Id)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Föreberedd avgång");
+                            Console.WriteLine($"Avstånd {countRails} mil ");
+                            Thread.Sleep(2000);
+                        }
+                        if (station.Name == startstation.Name)
+                        {
+                            Console.WriteLine($"Din resa börjar här på {station.Name}");
+                            simulatorIsRunning = false;
+                        }
+                        
+
+                        if (station.Name == slutStation.Name)
+                        {
+                            Console.WriteLine($"Du är nu på slutstation {station.Name}");
+                            simulatorIsRunning = false;
+                        }
+                        
+                        
+                        if (station.EndStation == false)
+                        {
+                            Console.WriteLine($"Vi stannar på {station.Name}, innan resan fortsätter mot slutstationen...");
+                            Thread.Sleep(2000);
+                        }
+
+
                     }
-                    else
+
+
+                    if (element is Rail)
                     {
-                        Console.WriteLine($"Du är nu på {station.Name} station");
-                        Thread.Sleep(2000);
+                        Console.WriteLine("Tuff tuff...");
+                        Console.WriteLine($"{count++} mil");
+
                     }
-                    
-                    
+
+
+
+                    if (element is Railwaycross)
+                    {
+                        Console.WriteLine("Tut tuuuuut, watch out for the railroad crossing ");
+
+                    }
+
+
+
+                    Console.WriteLine();
+
+                    Thread.Sleep(500);
+
                 }
 
-                Console.WriteLine();
-
-                Thread.Sleep(200);
-
-                /*
-                if element = startstation; continue
-                
-                if element = rail {
-                    writeline med delay 
-                }
-                if element =  endstation {
-                    writline du e framme.
-                }
-                    
-
-                    if (track.TrackElements.Any(s => s.GetType() == ));
 
 
-                */
             }
-            var countRails = track.TrackElements.Where(x => x.GetType() == typeof(Rail)).Count();
-            Console.WriteLine($"Din resa var {countRails} mil lång");
-
         }
-        /*
-private static void Simulate(){
-            while(simulatorIsRunning){
 
-                int distanceDrived = tts.Speed * FakeClock.MinutesWhichHaveTicked;
-                Console.WriteLine($"So far have {tts.Name} gone {distanceDrived} in {FakeClock.MinutesWhichHaveTicked} min");
-                if(distanceDrived >= distanceToDrive){
-                    simulatorIsRunning = false;
-                    Console.WriteLine($"We have arrived at the station which is {distanceToDrive} km from starting point");
-                }
-                Thread.Sleep(200);
-       */
+            
+        
     }
     
 }

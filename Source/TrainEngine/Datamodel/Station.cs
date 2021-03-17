@@ -9,6 +9,7 @@ namespace TrainEngine.Datamodel
         public int Id { get; set; }
         public string Name { get; set; }
         public bool EndStation { get; set; }
+        //public string StartStation { get; set; }
 
     }
 }
