@@ -59,11 +59,11 @@ namespace TrainEngine.Simulate
 
             foreach (var element in track.TrackElements)
             {
-
+               
 
                 Console.WriteLine(element);
-
-
+                
+                Thread.Sleep(500);
 
                 /*
                 if element = startstation; continue
