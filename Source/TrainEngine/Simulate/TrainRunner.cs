@@ -62,10 +62,11 @@ namespace TrainEngine.Simulate
 
             foreach (var element in track.TrackElements )
             {
-
-                if(element is Rail)
+                
+                if (element is Rail)
                 {
                     Console.WriteLine("Tuff tuff...");
+                    
                 }
 
                 if(element is Railwaycross)
@@ -83,13 +84,15 @@ namespace TrainEngine.Simulate
                     else
                     {
                         Console.WriteLine($"Du är nu på {station.Name} station");
+                        Thread.Sleep(2000);
                     }
+                    
                     
                 }
 
-                //Console.WriteLine(element);
+                Console.WriteLine();
 
-                Thread.Sleep(500);
+                Thread.Sleep(200);
 
                 /*
                 if element = startstation; continue
@@ -107,6 +110,8 @@ namespace TrainEngine.Simulate
 
                 */
             }
+            var countRails = track.TrackElements.Where(x => x.GetType() == typeof(Rail)).Count();
+            Console.WriteLine($"Din resa var {countRails} mil lång");
 
         }
         /*
