@@ -55,7 +55,7 @@ namespace TrainEngine.Simulate
             var track = trackOrm.Load();
             //var test = _track.TrackElements;
 
-
+            //Console.WriteLine();
 
 
 
@@ -66,6 +66,11 @@ namespace TrainEngine.Simulate
                 if(element is Rail)
                 {
                     Console.WriteLine("Tuff tuff...");
+                }
+
+                if(element is Railwaycross)
+                {
+                    Console.WriteLine("Tut tuuuuut, watch out for the railroad crossing ");
                 }
 
                 if(element is Station)
