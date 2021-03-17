@@ -76,7 +76,15 @@ namespace TrainEngine.Simulate
                 if(element is Station)
                 {
                     var station = (Station)element;
-                    Console.WriteLine($"Du är nu på {station.Name} station");
+                    if( station.EndStation == true)
+                    {
+                        Console.WriteLine($"Du är nu på {station.Name} som är en slutstation");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Du är nu på {station.Name} station");
+                    }
+                    
                 }
 
                 //Console.WriteLine(element);
