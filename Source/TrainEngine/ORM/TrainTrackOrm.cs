@@ -17,7 +17,7 @@ namespace TrainEngine.ORM
             var trainTrack = new TrainTrack();
 
 
-            string filePath = @".\Data\traintrack1.txt";
+            string filePath = @".\Data\traintrack2.txt";
 
             string lines = File.ReadAllText(filePath);
 

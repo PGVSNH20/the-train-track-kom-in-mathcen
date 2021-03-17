@@ -32,7 +32,7 @@ namespace TrainConsole
             
 
             ITrainRunner runner = new TrainRunner(trains[0], track);
-            runner.Start((Station)track.TrackElements[0], (Station)track.TrackElements[8]);
+            runner.Start((Station)track.TrackElements[0], (Station)track.TrackElements[27]);
             //runner.Start()
 
 

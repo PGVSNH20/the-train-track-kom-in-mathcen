@@ -65,18 +65,18 @@ namespace TrainEngine.Simulate
 
                 if(element is Rail)
                 {
-                    Console.WriteLine("En räls");
+                    Console.WriteLine("Tuff tuff...");
                 }
 
                 if(element is Station)
                 {
                     var station = (Station)element;
-                    Console.WriteLine(station.Name);
+                    Console.WriteLine($"Du är nu på {station.Name} station");
                 }
 
-                Console.WriteLine(element);
+                //Console.WriteLine(element);
 
-
+                Thread.Sleep(500);
 
                 /*
                 if element = startstation; continue
