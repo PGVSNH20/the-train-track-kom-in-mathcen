@@ -8,6 +8,7 @@ namespace TrainEngine
     public class TimeTable
     {
         public int TrainId { get; set; }
+        public TrainTrack ActualTrack { get; set; }
         public int StationID { get; set; }
         public string DepartureTime { get; set; }
         public string ArrivalTime { get; set; }

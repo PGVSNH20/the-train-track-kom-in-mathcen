@@ -25,9 +25,10 @@ namespace TrainEngine
 
         }
 
-        public ITrainPlaner LoadTrainTrack(string path)
+        public ITrainPlaner LoadTrainTrack(TrainTrack track)
         {
-            throw new NotImplementedException();
+            Timetables.Add(new TimeTable() { ActualTrack = track });
+            return this; 
         }
 
 
@@ -56,6 +57,10 @@ namespace TrainEngine
 
         public ITravelPlan GeneratePlan()
         {
+            foreach(var element in Timetables)
+            {
+                Console.WriteLine($"This is what's in your plan: {element.ActualTrack} {element.DepartureTime} {element.ArrivalTime} {element.StartStation} {element.EndStation} ");
+            }
             
             return new TravelPlan() { Timetables = Timetables };
 

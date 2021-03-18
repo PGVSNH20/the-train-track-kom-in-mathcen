@@ -20,8 +20,8 @@ namespace TrainConsole
         {
             
             
-            //var stationOrm = new StationOrm();
-            //var stations = stationOrm.Load();
+            var stationOrm = new StationOrm();
+            var stations = stationOrm.Load();
 
             var trainOrm = new TrainOrm();
             var trains = trainOrm.Load();
@@ -38,7 +38,7 @@ namespace TrainConsole
 
             ITrainRunner runner = new TrainRunner(trains[0], track);
             runner.Start((Station)track.TrackElements[0], (Station)track.TrackElements[27]);
-            Thread.Sleep(15000);
+            Thread.Sleep(20000);
             //Console.WriteLine("Times up");
             runner.Stop();
             /*ITrainRunner runner2 = new TrainRunner(trains[0], track);
@@ -51,18 +51,18 @@ namespace TrainConsole
 
            
 
-            //Train train1 = trains.FirstOrDefault(t => t.Id == 2);
-            ////Station station1 = stations.FirstOrDefault(s => s.Id == 0);
-            ////Station station2 = stations.FirstOrDefault(s => s.Id == 2);
+            Train train1 = trains.FirstOrDefault(t => t.Id == 2);
+            Station station1 = stations.FirstOrDefault(s => s.Id == 1);
+            Station station2 = stations.FirstOrDefault(s => s.Id == 3);
 
-            //Console.WriteLine($"Detta ar din reseplan:");
+            Console.WriteLine($"Detta ar din reseplan:");
 
-            //ITravelPlan travelPlan1 = new TrainPlaner(train1)
-            //        //.LoadTrainTrack()
-            //        //.HeadTowards(station2)
-            //        .StartTrainAt("10:23")
-            //        //.StopTrainAt("14:53", station2)
-            //        .GeneratePlan();
+            ITravelPlan travelPlan1 = new TrainPlaner(train1)
+                        .LoadTrainTrack(track)
+                        .HeadTowards(station2)
+                        .StartTrainAt("10:23")
+                        .StopTrainAt("14:53", station2)
+                        .GeneratePlan();
 
 
             //var train = new TrainTrackOrm();

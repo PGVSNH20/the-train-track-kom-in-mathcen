@@ -7,7 +7,7 @@ namespace TrainEngine
 {
     public interface ITrainPlaner
     {
-        ITrainPlaner LoadTrainTrack(string path);
+        ITrainPlaner LoadTrainTrack(TrainTrack track);
         ITrainPlaner HeadTowards (Station Station2);
         ITrainPlaner StartTrainAt(string StartTrainAt);
         ITrainPlaner StopTrainAt(string StopTrainAt, Station Station2);
